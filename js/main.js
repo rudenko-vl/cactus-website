@@ -16,6 +16,18 @@ if (navClose) {
     })
 }
 
+const cartIcon = document.getElementById('cart-icon')
+const cart = document.querySelector('.cart');
+const cartCloseIcon = document.querySelector('.cart__close');
+
+cartIcon.addEventListener('click', () => {
+    cart.classList.add('show-menu')
+})
+cartCloseIcon.addEventListener('click', () => {
+    cart.classList.remove('show-menu')
+})
+
+
 const navLink = document.querySelectorAll('.nav__link')
 
 const linkAction = () => {
@@ -57,4 +69,17 @@ const scrollActive = () => {
         }
     })
 }
-window.addEventListener('scroll', scrollActive)
+window.addEventListener('scroll', scrollActive);
+
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2500,
+    delay: 300,
+    // reset: true, Animations repeat
+})
+
+sr.reveal(`.home__img, .new__data, .care__img, .contact__content, .footer`)
+sr.reveal(`.home__data, .care__list, .contact__img`, { delay: 500 })
+sr.reveal(`.new__card`, { delay: 500, interval: 100 })
+sr.reveal(`.shop__card`, { interval: 100 })
